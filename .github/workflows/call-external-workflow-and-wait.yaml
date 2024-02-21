@@ -1,4 +1,4 @@
-name: Call external workflow
+name: Call external workflow and wait
 
 on:
   workflow_dispatch:
@@ -8,9 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call workflow from vrdominguez/test-action-helmfile
+        id: call-workflow
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
           repo: vrdominguez/test-action-helmfile
           workflow: Prueba instalador helm
           token: ${{ secrets.CALLER_TOKEN }}
-          wait-for-completion: false
+      
+      - name: Check status
+        if: always()
+        run: |
+          echo "Workflow status is: ${{ steps.call-workflow.outputs.workflow-conclusion }}"
+          echo ""
+          echo "Workflow URL is: ${{ steps.call-workflow.outputs.workflow-url }}"
+      
