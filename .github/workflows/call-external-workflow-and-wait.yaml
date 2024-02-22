@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Call workflow from vrdominguez/test-action-helmfile
         id: call-workflow
-        uses: aurelien-baudet/workflow-dispatch@v2
+        uses: aurelien-baudet/workflow-dispatch@93e95b157d791ae7f42aef8f8a0d3d723eba1c31
         with:
           repo: vrdominguez/test-action-helmfile
           workflow: Prueba instalador helm
