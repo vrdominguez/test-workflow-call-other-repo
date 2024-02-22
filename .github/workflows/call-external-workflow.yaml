@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call workflow from vrdominguez/test-action-helmfile
-        uses: aurelien-baudet/workflow-dispatch@v93e95b157d791ae7f42aef8f8a0d3d723eba1c31
+        uses: aurelien-baudet/workflow-dispatch@93e95b157d791ae7f42aef8f8a0d3d723eba1c31
         with:
           repo: vrdominguez/test-action-helmfile
           workflow: Prueba instalador helm
