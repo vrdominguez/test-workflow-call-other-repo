@@ -1,0 +1,20 @@
+name: Test docker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  workflow-call:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Is docker available
+        run: |
+          which docker
+
+      - name: Docker version
+        run: |
+          docker version
+      
+      - name: Show help
+        run: |
+          docker help
